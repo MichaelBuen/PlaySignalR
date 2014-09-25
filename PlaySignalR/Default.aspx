@@ -26,7 +26,7 @@
 
         tmntHub.client.cowabungaToTurtles = function (name, message) {
             
-            $('#messages').append(name + ": " + message + "<br/>");
+            $('#messages').append("<p>" + name + ": " + message + "</p>");
         };
 
 
