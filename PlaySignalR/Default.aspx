@@ -20,22 +20,19 @@
 
 <script>
     $(function () {
-        var chat = $.connection.usapHub;
+        var tmntHub = $.connection.tmntHub;
 
-        chat.connection.start(function () { });
-        
-        console.log(chat);
+        tmntHub.connection.start();
 
-        chat.client.receive = function (name, message) {
+        tmntHub.client.receiveFromAprilONeil = function (name, message) {
             
             $('#messages').append(name + ": " + message + "<br/>");
         };
 
 
         $('button').click(function () {
-            var text = $('#theMessage').val();
-            console.log(text);
-            chat.server.distribute('<%:  Guid.NewGuid()%>',text);            
+            var text = $('#theMessage').val();            
+            tmntHub.server.tellAprilONeil('<%:  Guid.NewGuid()%>', text);            
         });
         
 

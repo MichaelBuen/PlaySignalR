@@ -6,11 +6,12 @@ using Microsoft.AspNet.SignalR;
 
 namespace PlaySignalR.Scripts
 {
-    public class UsapHub : Hub
+    // Teenage Mutant Ninja Turtle Hub
+    public class TmntHub : Hub
     {
-        public void Distribute(string name, string message)
+        public void TellAprilONeil(string name, string message)
         {
-            Clients.All.receive(name, message);
+            Clients.All.receiveFromAprilONeil(name, message);
         }
     }
 }
