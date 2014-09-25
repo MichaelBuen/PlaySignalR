@@ -24,7 +24,7 @@
 
         tmntHub.connection.start();
 
-        tmntHub.client.receiveFromAprilONeil = function (name, message) {
+        tmntHub.client.cowabungaToTurtles = function (name, message) {
             
             $('#messages').append(name + ": " + message + "<br/>");
         };

@@ -11,7 +11,7 @@ namespace PlaySignalR.Scripts
     {
         public void TellAprilONeil(string name, string message)
         {
-            Clients.All.receiveFromAprilONeil(name, message);
+            Clients.All.cowabungaToTurtles(name, message);
         }
     }
 }
