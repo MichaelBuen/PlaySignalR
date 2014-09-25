@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 
-namespace PlaySignalR.Scripts
+namespace PlaySignalR
 {
     // Teenage Mutant Ninja Turtles Hub
     public class TmntHub : Hub
