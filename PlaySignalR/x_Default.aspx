@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PlaySignalR.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="x_Default.aspx.cs" Inherits="PlaySignalR.Default" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +15,7 @@
     <button>Send message</button>
 
     <div id="messages"></div>
-
+    
 </body>
 
 <script>
@@ -23,6 +23,9 @@
         var tmntHub = $.connection.tmntHub;
 
         tmntHub.connection.start();
+
+        
+
 
         tmntHub.client.cowabungaToTurtles = function (name, message) {
             

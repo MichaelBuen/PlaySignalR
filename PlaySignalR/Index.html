@@ -1,0 +1,61 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="/Scripts/jquery.signalR-2.1.2.js"></script>
+</head>
+<body>
+
+    <input type="text" id="theMessage" />
+
+    <button>Loading...</button>
+
+    <div id="messages"></div>
+
+</body>
+
+<script>
+    $(function () {
+        var tmntConnection = $.hubConnection();
+
+        var tmntHub = tmntConnection.createHubProxy('tmntHub');
+
+        
+        tmntHub.connection.start(function () {
+
+
+
+
+            var uuid = generateUUID();
+            $('button').text('Ready').click(function () {
+                var text = $('#theMessage').val();
+                tmntHub.invoke('tellAprilONeil', uuid, text);
+            });
+
+
+            // http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+            function generateUUID() {
+                var d = new Date().getTime();
+                var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = (d + Math.random() * 16) % 16 | 0;
+                    d = Math.floor(d / 16);
+                    return (c == 'x' ? r : (r & 0x7 | 0x8)).toString(16);
+                });
+                return uuid;
+            };
+
+        })
+
+
+        tmntHub.on('cowabungaToTurtles', function (name, message) {
+
+            $('#messages').append("<p>" + name + ": " + message + "</p>");
+        });
+
+        
+    });
+</script>
+
+</html>
